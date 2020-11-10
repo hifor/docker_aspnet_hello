@@ -4,19 +4,28 @@ docker image for asp.net core application
 
 
 
-- create image
-
-```sh
-$ docker build -t hub.hifor.net/library/dotnet:latest --build-arg DLL_FILE=hello.dll .
-```
-
-
-
-- run
-
 ```sh
 docker run -it -p 8080:80 -d hifor/aspnetcore:latest
 ```
 
 
+
+```sh
+docker run -it \
+    -p 8080:80 \
+    --name=dn-hello \
+    -e ENV_DLL_FILE=hello.dll \
+    -d hifor/aspnetcore:latest
+```
+
+
+
+```sh
+docker run -it \
+    -p 8080:80 \
+    --name=dn-hello \
+    -v /var/local/aspnet:/app \
+    -e ENV_DLL_FILE=hello.dll \
+    -d hifor/aspnetcore:latest
+```
 
