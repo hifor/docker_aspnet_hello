@@ -5,7 +5,7 @@ ARG DLL_FILE=app.dll
 ENV ENV_DLL_FILE=$DLL_FILE
 
 #把当前目录复制到镜像的 app目录
-COPY ./file /app
+ADD file /app
 #指定工作目录
 WORKDIR /app
 #暴露的端口 是之前准备asp.net core应用设置的端口一致 UseUrls(“http://*:80”)
